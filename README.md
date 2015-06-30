@@ -1,4 +1,5 @@
-```setInterval(function () {
+```
+setInterval(function () {
 
     window.Selez.skipNext(5);
     window.Selez.selectNext();
