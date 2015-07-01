@@ -22,11 +22,11 @@
       Selez.selector.style.outlineOffset = 'inherit';
     };
 
-    Selez.selectNext =  function selectNextElement(idOrClass) {
+    Selez.selectNext =  function selectNextElement(identifier) {
 
       var i = Selez.item;
 
-      if (!idOrClass) {
+      if (!identifier) {
 
         Selez.item += 1;
 
@@ -42,12 +42,12 @@
         }
       } else {
         //if it's #id
-        if (idOrClass.indexOf('#') !== -1) {
+        if (identifier.indexOf('#') !== -1) {
         for (i; i <= Selez.dom.length; i += 1) {
 
           if (Selez.dom[i]
             && Selez.dom[i].id
-            && Selez.dom[i].id.toString() === idOrClass.replace('#', '')) {
+            && Selez.dom[i].id.toString() === identifier.replace('#', '')) {
 
             Selez.selector = Selez.dom[i];
             Selez.item = i + 1;
@@ -55,12 +55,24 @@
           }
         }
         //if its .class/.class .es
-        } else if (idOrClass.indexOf('.') !== -1) {
+        } else if (identifier.indexOf('.') !== -1) {
           for (i; i <= Selez.dom.length; i += 1) {
 
             if (Selez.dom[i]
               && Selez.dom[i].className
-              && Selez.dom[i].className.toString().indexOf(idOrClass.replace('.', '')) !== -1) {
+              && Selez.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
+
+              Selez.selector = Selez.dom[i];
+              Selez.item = i + 1;
+              break;
+            }
+          }
+        } else if (identifier.indexOf('<') !== -1) {
+          for (i; i <= Selez.dom.length; i += 1) {
+
+            if (Selez.dom[i]
+              && Selez.dom[i].tagName
+              && Selez.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
 
               Selez.selector = Selez.dom[i];
               Selez.item = i + 1;
@@ -69,7 +81,7 @@
           }
         } else {
 
-          window.console.error('You must set a correct #id or .class parameter');
+          window.console.error('You must set a correct #id or .class or <tag> parameter');
         }
       }
     };
