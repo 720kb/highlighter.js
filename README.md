@@ -60,4 +60,6 @@ window.selectPrev('.class .class-2');
 
 3 - option to specify if to select or not invisible/hidden elements
 
-4 - linter, bower, npm and tasks
+4 - better general code structure
+
+5 - linter, bower, npm and tasks
