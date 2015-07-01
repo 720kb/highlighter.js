@@ -59,3 +59,5 @@ window.selectPrev('.class .class-2');
 2 - select by tag name (next and prev)
 
 3 - option to specify if to select or not invisible/hidden elements
+
+4 - linter, bower, npm and tasks
