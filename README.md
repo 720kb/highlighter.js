@@ -39,6 +39,11 @@ _Select next element (by class/classes) starting from the current selected eleme
 ```
 window.selectNext('.class .class-2');
 ```
+###Select Next by <tag> name
+_Select next element (by <tag> name) starting from the current selected element (by default is the first DOM element)_
+```
+window.selectNext('<span>');
+```
 
 ###Select Prev by ID
 _Select previous element (by ID) starting from the current selected element (by default is the first DOM element)_
@@ -56,10 +61,10 @@ window.selectPrev('.class .class-2');
 
 1 - events on selection and errors
 
-2 - select by tag name (next and prev)
+2 - select PREV by ID, class/es, <tag>
 
-3 - option to specify if to select or not invisible/hidden elements
+3 - option to specify if to select or not invisible/hidden/out-of-screen elements
 
-4 - better general code structure
+4 - better general code and structure
 
 5 - linter, bower, npm and tasks
