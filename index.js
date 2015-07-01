@@ -107,6 +107,11 @@
 
         Selez.item += skip;
       }
+
+      if (Number(skip) > Selez.dom.length) {
+
+        Selez.item = 0;
+      }
     };
 
     Selez.skipPrev = function skipPrevElements(skip) {
