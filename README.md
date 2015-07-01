@@ -4,25 +4,25 @@ if no next elements to select restart selecting the first element in the dom
 
 if no prev elements to select restart selecting the first element in the dom
 
-###Select next element
+###Select Next element
 _Select next element starting from the current selected element (by default is the first DOM element)_
 ```
 window.Selez.selectNext()
 ```
 
-###Select prev element
+###Select Prev element
 _Select previous element starting from the current selected element ( by default is the first DOM element)_
 ```
 window.Selez.selectPrev()
 ```
 
-###Highlight selected element
+###Highlight Selected element
 _Scroll to and highlight current selected element in view_
 ```
 window.Selez.highlight();
 ```
 
-###De-highlight selected element
+###De-highlight Selected element
 _De-highlight current selected element in view_
 ```
 window.Selez.dehighlight();
