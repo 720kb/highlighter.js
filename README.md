@@ -56,15 +56,20 @@ _Select previous element (by class/classes) starting from the current selected e
 ```
 window.Pointer.selectPrev('.class .class-2');
 ```
+###Select Prev by < tag > name
+_Select previous element (by < tag > name) starting from the current selected element (by default is the first DOM element)_
+```
+window.selectPrev('<span>');
+```
 
 ###TO-DO
 
 1 - events on selection and errors
 
-2 - select PREV by ID, class/es, < tag >
+2 - option to specify if to select or not invisible/hidden/out-of-screen elements
 
-3 - option to specify if to select or not invisible/hidden/out-of-screen elements
+3 - better general code and structure
 
-4 - better general code and structure
+4 - bower, npm and tasks
 
-5 - linter, bower, npm and tasks
+5 - testing
