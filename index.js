@@ -38,7 +38,7 @@
           //no next element restart from first element
           Selez.item = 0;
           Selez.selector = Selez.dom[Selez.item];
-          window.console.info('No next elements restarting from the first element in page');
+          window.console.info('No next elements, restarting from the first element in page');
         }
         //if it's #id
       } else if (identifier.indexOf('#') !== -1) {
@@ -53,20 +53,20 @@
             break;
           }
         }
-        //if its .class/.class .es
+        //if it's .class/.class .es
       } else if (identifier.indexOf('.') !== -1) {
-        for (i; i <= Selez.dom.length; i += 1) {
+          for (i; i <= Selez.dom.length; i += 1) {
 
-          if (Selez.dom[i]
-            && Selez.dom[i].className
-            && Selez.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
+            if (Selez.dom[i]
+              && Selez.dom[i].className
+              && Selez.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
 
-            Selez.selector = Selez.dom[i];
-            Selez.item = i + 1;
-            break;
+              Selez.selector = Selez.dom[i];
+              Selez.item = i + 1;
+              break;
+            }
           }
-        }
-        //if its <tag>
+      //if it's a <tag>
       } else if (identifier.indexOf('<') !== -1) {
         for (i; i <= Selez.dom.length; i += 1) {
 
@@ -85,19 +85,78 @@
       }
     };
 
-    Selez.selectPrev = function selectPrevElement() {
+    Selez.selectPrev = function selectNextElement(identifier) {
 
-      Selez.item -= 1;
+      var i = Selez.item;
 
-      if (Selez.dom[Selez.item]) {
+      if (!identifier) {
 
-        Selez.selector = Selez.dom[Selez.item];
-        //new selected element event
+        Selez.item -= 1;
+
+        if (Selez.dom[Selez.item]) {
+
+          Selez.selector = Selez.dom[Selez.item];
+          //new selected element event
+        } else {
+          //no previous elements, restart from first element
+          Selez.item = 0;
+          Selez.selector = Selez.dom[Selez.item];
+          window.console.info('No previous elements, restarting from the first element in page');
+        }
+        //if it's #id
+      } else if (identifier.indexOf('#') !== -1) {
+        for (i <= Selez.item; i >= 0; i -= 1) {
+
+          if (Selez.dom[i]
+            && Selez.dom[i].id
+            && Selez.dom[i].id.toString() === identifier.replace('#', '')) {
+
+            Selez.selector = Selez.dom[i];
+            Selez.item = i - 1;
+
+            if (Selez.item < 0) {
+              Selez.item = 0;
+              window.console.info('No previous elements, restarting from the first element in page');
+              break;
+            }
+            break;
+          }
+        }
+        //if it's .class/.class .es
+      } else if (identifier.indexOf('.') !== -1) {
+          for (i <= Selez.item; i >= 0; i -= 1) {
+
+            if (Selez.dom[i]
+              && Selez.dom[i].className
+              && Selez.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
+
+              Selez.selector = Selez.dom[i];
+              Selez.item = i - 1;
+
+              if (Selez.item < 0) {
+                Selez.item = 0;
+                window.console.info('No previous elements, restarting from the first element in page');
+                break;
+              }
+              break;
+            }
+          }
+      //if it's a <tag>
+      } else if (identifier.indexOf('<') !== -1) {
+        for (i <= Selez.item; i >= 0; i -= 1) {
+
+          if (Selez.dom[i]
+            && Selez.dom[i].tagName
+            && Selez.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
+
+            Selez.selector = Selez.dom[i];
+            Selez.item = i - 1;
+            break;
+          }
+        }
       } else {
-        //no prev element to select event
-        Selez.item = 0;
-        Selez.selector = Selez.dom[Selez.item];
-        window.console.info('No previous elements restarting from the first element in page');
+
+        window.console.error('You must set a correct #id or .class or <tag> parameter');
       }
     };
 
