@@ -1,8 +1,8 @@
 ###Default
 
-if no next elements to select restart selecting the first element in the dom
+if no selectable next element, Pointer will restart selecting the first element in the dom
 
-if no prev elements to select restart selecting the first element in the dom
+if no selectable prev element, Pointer will restart selecting the first element in the dom
 
 ###Select Next element
 _Select next element starting from the current selected element (by default is the first DOM element)_
