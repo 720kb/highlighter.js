@@ -2,80 +2,80 @@
 (function plainOldJs(window) {
   'use strict';
 
-    var Selez = {};
+    var Pointer = {};
 
-    Selez.item = 0;
-    Selez.dom = window.document.body.getElementsByTagName('*');
-    Selez.selector = Selez.dom[Selez.item];
+    Pointer.item = 0;
+    Pointer.dom = window.document.body.getElementsByTagName('*');
+    Pointer.selector = Pointer.dom[Pointer.item];
 
-    Selez.highlight = function highlightSelectedElement() {
-      Selez.selector.scrollIntoView();
-      window.scrollTo(0, Number(Selez.selector.offsetTop - 100).toFixed(0));
-      Selez.selector.style.transition = 'outline 0.55s linear';
-      Selez.selector.style.outline = '3px inset red';
-      Selez.selector.style.outlineOffset = '-2px';
+    Pointer.highlight = function highlightSelectedElement() {
+      Pointer.selector.scrollIntoView();
+      window.scrollTo(0, Number(Pointer.selector.offsetTop - 100).toFixed(0));
+      Pointer.selector.style.transition = 'outline 0.55s linear';
+      Pointer.selector.style.outline = '3px inset red';
+      Pointer.selector.style.outlineOffset = '-2px';
     };
 
-    Selez.dehighlight = function dehighlightSelectedElement() {
-      Selez.selector.style.transition = 'outline 0s linear';
-      Selez.selector.style.outline = 'inherit';
-      Selez.selector.style.outlineOffset = 'inherit';
+    Pointer.dehighlight = function dehighlightSelectedElement() {
+      Pointer.selector.style.transition = 'outline 0s linear';
+      Pointer.selector.style.outline = 'inherit';
+      Pointer.selector.style.outlineOffset = 'inherit';
     };
 
-    Selez.selectNext = function selectNextElement(identifier) {
+    Pointer.selectNext = function selectNextElement(identifier) {
 
-      var i = Selez.item;
+      var i = Pointer.item;
 
       if (!identifier) {
 
-        Selez.item += 1;
+        Pointer.item += 1;
 
-        if (Selez.dom[Selez.item]) {
+        if (Pointer.dom[Pointer.item]) {
 
-          Selez.selector = Selez.dom[Selez.item];
+          Pointer.selector = Pointer.dom[Pointer.item];
           //new selected element event
         } else {
           //no next element restart from first element
-          Selez.item = 0;
-          Selez.selector = Selez.dom[Selez.item];
+          Pointer.item = 0;
+          Pointer.selector = Pointer.dom[Pointer.item];
           window.console.info('No next elements, restarting from the first element in page');
         }
         //if it's #id
       } else if (identifier.indexOf('#') !== -1) {
-        for (i; i <= Selez.dom.length; i += 1) {
+        for (i; i <= Pointer.dom.length; i += 1) {
 
-          if (Selez.dom[i]
-            && Selez.dom[i].id
-            && Selez.dom[i].id.toString() === identifier.replace('#', '')) {
+          if (Pointer.dom[i]
+            && Pointer.dom[i].id
+            && Pointer.dom[i].id.toString() === identifier.replace('#', '')) {
 
-            Selez.selector = Selez.dom[i];
-            Selez.item = i + 1;
+            Pointer.selector = Pointer.dom[i];
+            Pointer.item = i + 1;
             break;
           }
         }
         //if it's .class/.class .es
       } else if (identifier.indexOf('.') !== -1) {
-          for (i; i <= Selez.dom.length; i += 1) {
+          for (i; i <= Pointer.dom.length; i += 1) {
 
-            if (Selez.dom[i]
-              && Selez.dom[i].className
-              && Selez.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
+            if (Pointer.dom[i]
+              && Pointer.dom[i].className
+              && Pointer.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
 
-              Selez.selector = Selez.dom[i];
-              Selez.item = i + 1;
+              Pointer.selector = Pointer.dom[i];
+              Pointer.item = i + 1;
               break;
             }
           }
       //if it's a <tag>
       } else if (identifier.indexOf('<') !== -1) {
-        for (i; i <= Selez.dom.length; i += 1) {
+        for (i; i <= Pointer.dom.length; i += 1) {
 
-          if (Selez.dom[i]
-            && Selez.dom[i].tagName
-            && Selez.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
+          if (Pointer.dom[i]
+            && Pointer.dom[i].tagName
+            && Pointer.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
 
-            Selez.selector = Selez.dom[i];
-            Selez.item = i + 1;
+            Pointer.selector = Pointer.dom[i];
+            Pointer.item = i + 1;
             break;
           }
         }
@@ -85,37 +85,37 @@
       }
     };
 
-    Selez.selectPrev = function selectNextElement(identifier) {
+    Pointer.selectPrev = function selectNextElement(identifier) {
 
-      var i = Selez.item;
+      var i = Pointer.item;
 
       if (!identifier) {
 
-        Selez.item -= 1;
+        Pointer.item -= 1;
 
-        if (Selez.dom[Selez.item]) {
+        if (Pointer.dom[Pointer.item]) {
 
-          Selez.selector = Selez.dom[Selez.item];
+          Pointer.selector = Pointer.dom[Pointer.item];
           //new selected element event
         } else {
           //no previous elements, restart from first element
-          Selez.item = 0;
-          Selez.selector = Selez.dom[Selez.item];
+          Pointer.item = 0;
+          Pointer.selector = Pointer.dom[Pointer.item];
           window.console.info('No previous elements, restarting from the first element in page');
         }
         //if it's #id
       } else if (identifier.indexOf('#') !== -1) {
-        for (i <= Selez.item; i >= 0; i -= 1) {
+        for (i <= Pointer.item; i >= 0; i -= 1) {
 
-          if (Selez.dom[i]
-            && Selez.dom[i].id
-            && Selez.dom[i].id.toString() === identifier.replace('#', '')) {
+          if (Pointer.dom[i]
+            && Pointer.dom[i].id
+            && Pointer.dom[i].id.toString() === identifier.replace('#', '')) {
 
-            Selez.selector = Selez.dom[i];
-            Selez.item = i - 1;
+            Pointer.selector = Pointer.dom[i];
+            Pointer.item = i - 1;
 
-            if (Selez.item < 0) {
-              Selez.item = 0;
+            if (Pointer.item < 0) {
+              Pointer.item = 0;
               window.console.info('No previous elements, restarting from the first element in page');
               break;
             }
@@ -124,17 +124,17 @@
         }
         //if it's .class/.class .es
       } else if (identifier.indexOf('.') !== -1) {
-          for (i <= Selez.item; i >= 0; i -= 1) {
+          for (i <= Pointer.item; i >= 0; i -= 1) {
 
-            if (Selez.dom[i]
-              && Selez.dom[i].className
-              && Selez.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
+            if (Pointer.dom[i]
+              && Pointer.dom[i].className
+              && Pointer.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
 
-              Selez.selector = Selez.dom[i];
-              Selez.item = i - 1;
+              Pointer.selector = Pointer.dom[i];
+              Pointer.item = i - 1;
 
-              if (Selez.item < 0) {
-                Selez.item = 0;
+              if (Pointer.item < 0) {
+                Pointer.item = 0;
                 window.console.info('No previous elements, restarting from the first element in page');
                 break;
               }
@@ -143,14 +143,14 @@
           }
       //if it's a <tag>
       } else if (identifier.indexOf('<') !== -1) {
-        for (i <= Selez.item; i >= 0; i -= 1) {
+        for (i <= Pointer.item; i >= 0; i -= 1) {
 
-          if (Selez.dom[i]
-            && Selez.dom[i].tagName
-            && Selez.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
+          if (Pointer.dom[i]
+            && Pointer.dom[i].tagName
+            && Pointer.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
 
-            Selez.selector = Selez.dom[i];
-            Selez.item = i - 1;
+            Pointer.selector = Pointer.dom[i];
+            Pointer.item = i - 1;
             break;
           }
         }
@@ -160,29 +160,29 @@
       }
     };
 
-    Selez.skipNext = function skipNextElements(skip) {
+    Pointer.skipNext = function skipNextElements(skip) {
       if (Number(skip) > 0) {
 
-        Selez.item += skip;
+        Pointer.item += skip;
       }
 
-      if (Number(skip) > Selez.dom.length) {
+      if (Number(skip) > Pointer.dom.length) {
 
-        Selez.item = 0;
+        Pointer.item = 0;
       }
     };
 
-    Selez.skipPrev = function skipPrevElements(skip) {
+    Pointer.skipPrev = function skipPrevElements(skip) {
       if (Number(skip) > 0) {
 
-        Selez.item -= skip;
+        Pointer.item -= skip;
       }
 
-      if (Selez.item < 0) {
+      if (Pointer.item < 0) {
 
-        Selez.item = 0;
+        Pointer.item = 0;
       }
     };
 
-    window.Selez = Selez;
+    window.Pointer = Pointer;
 }(window));
