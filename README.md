@@ -59,12 +59,12 @@ window.Pointer.selectPrev('.class .class-2');
 ###Select Prev by < tag > name
 _Select previous element (by < tag > name) starting from the current selected element (by default is the first DOM element)_
 ```
-window.selectPrev('<span>');
+window.Pointer.selectPrev('<span>');
 ```
 ###Select Prev by < tag > name
 _Select previous element (by < tag > name) starting from the current selected element (by default is the first DOM element)_
 ```
-window.selectPrev('<span>');
+window.Pointer.selectPrev('<span>');
 ```
 
 ###TO-DO
