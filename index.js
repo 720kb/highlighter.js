@@ -2,187 +2,186 @@
 (function plainOldJs(window) {
   'use strict';
 
-    var Pointer = {};
+  var Pointer = function initPointer() {
+    this.position = 0;
+    this.dom = window.document.body.getElementsByTagName('*');
+    this.selector = this.dom[this.position];
+  };
 
-    Pointer.item = 0;
-    Pointer.dom = window.document.body.getElementsByTagName('*');
-    Pointer.selector = Pointer.dom[Pointer.item];
+  Pointer.prototype.highlight = function highlightSelectedElement() {
+    this.selector.scrollIntoView();
+    window.scrollTo(0, Number(this.selector.offsetTop - 100).toFixed(0));
+    this.selector.style.transition = 'outline 0.55s linear';
+    this.selector.style.outline = '3px inset red';
+    this.selector.style.outlineOffset = '-2px';
+  };
 
-    Pointer.highlight = function highlightSelectedElement() {
-      Pointer.selector.scrollIntoView();
-      window.scrollTo(0, Number(Pointer.selector.offsetTop - 100).toFixed(0));
-      Pointer.selector.style.transition = 'outline 0.55s linear';
-      Pointer.selector.style.outline = '3px inset red';
-      Pointer.selector.style.outlineOffset = '-2px';
-    };
+  Pointer.prototype.dehighlight = function dehighlightSelectedElement() {
+    this.selector.style.transition = 'outline none';
+    this.selector.style.outline = 'none';
+  };
 
-    Pointer.dehighlight = function dehighlightSelectedElement() {
-      Pointer.selector.style.transition = 'outline 0s linear';
-      Pointer.selector.style.outline = 'inherit';
-      Pointer.selector.style.outlineOffset = 'inherit';
-    };
+  Pointer.prototype.next = function selectNextElement(identifier) {
 
-    Pointer.selectNext = function selectNextElement(identifier) {
+    var i = this.position;
 
-      var i = Pointer.item;
+    if (!identifier) {
 
-      if (!identifier) {
+      if (this.dom[this.position + 1]) {
 
-        Pointer.item += 1;
-
-        if (Pointer.dom[Pointer.item]) {
-
-          Pointer.selector = Pointer.dom[Pointer.item];
-          //new selected element event
-        } else {
-          //no next element restart from first element
-          Pointer.item = 0;
-          Pointer.selector = Pointer.dom[Pointer.item];
-          window.console.info('No next elements, restarting from the first element in page');
-        }
-        //if it's #id
-      } else if (identifier.indexOf('#') !== -1) {
-        for (i; i <= Pointer.dom.length; i += 1) {
-
-          if (Pointer.dom[i]
-            && Pointer.dom[i].id
-            && Pointer.dom[i].id.toString() === identifier.replace('#', '')) {
-
-            Pointer.selector = Pointer.dom[i];
-            Pointer.item = i + 1;
-            break;
-          }
-        }
-        //if it's .class/.class .es
-      } else if (identifier.indexOf('.') !== -1) {
-          for (i; i <= Pointer.dom.length; i += 1) {
-
-            if (Pointer.dom[i]
-              && Pointer.dom[i].className
-              && Pointer.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
-
-              Pointer.selector = Pointer.dom[i];
-              Pointer.item = i + 1;
-              break;
-            }
-          }
-      //if it's a <tag>
-      } else if (identifier.indexOf('<') !== -1) {
-        for (i; i <= Pointer.dom.length; i += 1) {
-
-          if (Pointer.dom[i]
-            && Pointer.dom[i].tagName
-            && Pointer.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
-
-            Pointer.selector = Pointer.dom[i];
-            Pointer.item = i + 1;
-            break;
-          }
-        }
+        this.position += 1;
+        this.selector = this.dom[this.position];
+        //new selected element event
       } else {
-
-        window.console.error('You must set a correct #id or .class or <tag> parameter');
+        //no next element restart from first element
+        this.position = 0;
+        this.selector = this.dom[this.position];
+        window.console.info('No next elements, restarting from the first element in page');
       }
-    };
+      //if it's #id
+    } else if (identifier.indexOf('#') !== -1) {
+      for (i; i <= this.dom.length; i += 1) {
 
-    Pointer.selectPrev = function selectNextElement(identifier) {
+        if (this.dom[i]
+          && this.dom[i].id
+          && this.dom[i].id.toString() === identifier.replace('#', '')) {
 
-      var i = Pointer.item;
-
-      if (!identifier) {
-
-        Pointer.item -= 1;
-
-        if (Pointer.dom[Pointer.item]) {
-
-          Pointer.selector = Pointer.dom[Pointer.item];
-          //new selected element event
-        } else {
-          //no previous elements, restart from first element
-          Pointer.item = 0;
-          Pointer.selector = Pointer.dom[Pointer.item];
-          window.console.info('No previous elements, restarting from the first element in page');
+          this.selector = this.dom[i];
+          this.position = i + 1;
+          break;
         }
-        //if it's #id
-      } else if (identifier.indexOf('#') !== -1) {
-        for (i <= Pointer.item; i >= 0; i -= 1) {
+      }
+      //if it's .class/.class .es
+    } else if (identifier.indexOf('.') !== -1) {
+      for (i; i <= this.dom.length; i += 1) {
 
-          if (Pointer.dom[i]
-            && Pointer.dom[i].id
-            && Pointer.dom[i].id.toString() === identifier.replace('#', '')) {
+        if (this.dom[i]
+          && this.dom[i].className
+          && this.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
 
-            Pointer.selector = Pointer.dom[i];
-            Pointer.item = i - 1;
-
-            if (Pointer.item < 0) {
-              Pointer.item = 0;
-              window.console.info('No previous elements, restarting from the first element in page');
-              break;
-            }
-            break;
-          }
+          this.selector = this.dom[i];
+          this.position = i + 1;
+          break;
         }
-        //if it's .class/.class .es
-      } else if (identifier.indexOf('.') !== -1) {
-          for (i <= Pointer.item; i >= 0; i -= 1) {
+      }
+    //if it's a <tag>
+    } else if (identifier.indexOf('<') > -1) {
+      for (i; i <= this.dom.length; i += 1) {
 
-            if (Pointer.dom[i]
-              && Pointer.dom[i].className
-              && Pointer.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
+        if (this.dom[i]
+          && this.dom[i].tagName
+          && this.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
 
-              Pointer.selector = Pointer.dom[i];
-              Pointer.item = i - 1;
-
-              if (Pointer.item < 0) {
-                Pointer.item = 0;
-                window.console.info('No previous elements, restarting from the first element in page');
-                break;
-              }
-              break;
-            }
-          }
-      //if it's a <tag>
-      } else if (identifier.indexOf('<') !== -1) {
-        for (i <= Pointer.item; i >= 0; i -= 1) {
-
-          if (Pointer.dom[i]
-            && Pointer.dom[i].tagName
-            && Pointer.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
-
-            Pointer.selector = Pointer.dom[i];
-            Pointer.item = i - 1;
-            break;
-          }
+          this.selector = this.dom[i];
+          this.position = i + 1;
+          break;
         }
+      }
+    } else {
+
+      window.console.error('You must set a correct #id or .class or <tag> parameter');
+    }
+  };
+
+  Pointer.prototype.previous = function selectPrevElement(identifier) {
+
+    var i = this.position;
+
+    if (!identifier) {
+
+      if (this.dom[this.position - 1]) {
+
+        this.position -= 1;
+        this.selector = this.dom[this.position];
+        //new selected element event
       } else {
-
-        window.console.error('You must set a correct #id or .class or <tag> parameter');
+        //no previous elements, restart from first element
+        this.position = 0;
+        this.selector = this.dom[this.position];
+        window.console.info('No previous elements, restarting from the first element in page');
       }
-    };
+      //if it's #id
+    } else if (identifier.indexOf('#') !== -1) {
+      for (i <= this.position; i >= 0; i -= 1) {
 
-    Pointer.skipNext = function skipNextElements(skip) {
-      if (Number(skip) > 0) {
+        if (this.dom[i]
+          && this.dom[i].id
+          && this.dom[i].id.toString() === identifier.replace('#', '')) {
 
-        Pointer.item += skip;
+          this.selector = this.dom[i];
+          this.position = i - 1;
+
+          if (this.position < 0) {
+            this.position = 0;
+            window.console.info('No previous elements, restarting from the first element in page');
+            break;
+          }
+          break;
+        }
       }
+      //if it's .class/.class .es
+    } else if (identifier.indexOf('.') > -1) {
+      for (i <= this.position; i >= 0; i -= 1) {
 
-      if (Number(skip) > Pointer.dom.length) {
+        if (this.dom[i]
+          && this.dom[i].className
+          && this.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
 
-        Pointer.item = 0;
+          this.selector = this.dom[i];
+          this.position = i - 1;
+
+          if (this.position < 0) {
+            this.position = 0;
+            window.console.info('No previous elements, restarting from the first element in page');
+            break;
+          }
+          break;
+        }
       }
-    };
+    //if it's a <tag>
+    } else if (identifier.indexOf('<') > -1) {
+      for (i <= this.position; i >= 0; i -= 1) {
 
-    Pointer.skipPrev = function skipPrevElements(skip) {
-      if (Number(skip) > 0) {
+        if (this.dom[i]
+          && this.dom[i].tagName
+          && this.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
 
-        Pointer.item -= skip;
+          this.selector = this.dom[i];
+          this.position = i - 1;
+          break;
+        }
       }
+    } else {
 
-      if (Pointer.item < 0) {
+      window.console.error('You must set a correct #id or .class or <tag> parameter');
+    }
+  };
 
-        Pointer.item = 0;
-      }
-    };
+  Pointer.prototype.skipNext = function skipNextElements(skip) {
+    if (Number(skip) > 0) {
 
-    window.Pointer = Pointer;
+      this.position += skip;
+    }
+
+    if (Number(skip) > this.dom.length) {
+
+      this.position = 0;
+      window.console.log('No next elements, restarting from the first DOM element');
+    }
+  };
+
+  Pointer.prototype.skipPrev = function skipPrevElements(skip) {
+    if (Number(skip) > 0) {
+
+      this.position -= skip;
+    }
+
+    if (this.position < 0) {
+
+      this.position = 0;
+      window.console.log('No previous elements, restarting from the first DOM element');
+    }
+  };
+
+  window.Pointer = Pointer;
 }(window));
