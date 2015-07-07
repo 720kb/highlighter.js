@@ -21,6 +21,13 @@
     this.selector.style.outline = 'none';
   };
 
+  Pointer.prototype.select = function selectElement(identifier) {
+    //select direct element (reset position and selector)
+    this.position = 0;
+    this.selector = this.dom[0];
+    this.next(identifier);
+  };
+
   Pointer.prototype.next = function selectNextElement(identifier) {
 
     var i = this.position;

@@ -9,6 +9,21 @@ if no selectable prev element, Pointer will restart selecting the first element 
 var Pointer = new window.Pointer();
 //options {} yet to come
 ```
+###Select Element By ID
+_Select first element in the DOM by ID_
+```
+Pointer.select('#id');
+```
+###Select Element by class/es
+_Select first element in the DOM by class or classes_
+```
+Pointer.select('.class .class2');
+```
+###Select Element by tag name
+_Select first element in the DOM by < tag > name_
+```
+Pointer.select('<span>');
+```
 
 ###Select Next element
 _Select next element starting from the current selected element (by default is the first DOM element)_
@@ -72,10 +87,12 @@ Pointer.previous('<span>');
 
 1 - events on selection and errors
 
-2 - option to specify if to select or not invisible/hidden/out-of-screen elements
+2 - Select by attribute/s
 
-3 - better general code and structure
+3 - option to specify if to select or not invisible/hidden/out-of-screen elements
 
-4 - bower, npm and tasks
+4 - better general code and structure
 
-5 - testing
+5 - bower, npm and tasks
+
+6 - testing
