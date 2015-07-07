@@ -10,7 +10,6 @@
 
   Pointer.prototype.highlight = function highlightSelectedElement() {
     this.selector.scrollIntoView();
-    window.scrollTo(0, Number(this.selector.offsetTop - 100).toFixed(0));
     this.selector.style.transition = 'outline 0.55s linear';
     this.selector.style.outline = '3px inset red';
     this.selector.style.outlineOffset = '-2px';
@@ -32,21 +31,18 @@
 
     var i = this.position;
 
-    if (!identifier) {
+    if (this.dom[this.position + 1]) {
 
-      if (this.dom[this.position + 1]) {
-
-        this.position += 1;
-        this.selector = this.dom[this.position];
-        //new selected element event
-      } else {
-        //no next element restart from first element
-        this.position = 0;
-        this.selector = this.dom[this.position];
-        window.console.info('No next elements, restarting from the first element in page');
-      }
-      //if it's #id
-    } else if (identifier.indexOf('#') !== -1) {
+      this.selector = this.dom[this.position];
+      this.position += 1;
+    } else {
+      //no next element restart from first element
+      this.position = 0;
+      this.selector = this.dom[this.position];
+      window.console.info('No next elements, restarting from the first element in page');
+    }
+    //if it's #id
+    if (identifier.indexOf('#') !== -1) {
       for (i; i <= this.dom.length; i += 1) {
 
         if (this.dom[i]
@@ -86,7 +82,7 @@
       }
     } else {
 
-      window.console.error('You must set a correct #id or .class or <tag> parameter');
+      window.console.error('Please set a correct #id or .class or <tag> identifier');
     }
   };
 
@@ -94,21 +90,18 @@
 
     var i = this.position;
 
-    if (!identifier) {
+    if (this.dom[this.position - 1]) {
 
-      if (this.dom[this.position - 1]) {
-
-        this.position -= 1;
-        this.selector = this.dom[this.position];
-        //new selected element event
-      } else {
-        //no previous elements, restart from first element
-        this.position = 0;
-        this.selector = this.dom[this.position];
-        window.console.info('No previous elements, restarting from the first element in page');
-      }
-      //if it's #id
-    } else if (identifier.indexOf('#') !== -1) {
+      this.selector = this.dom[this.position];
+      this.position -= 1;
+    } else {
+      //no next element restart from first element
+      this.position = 0;
+      this.selector = this.dom[this.position];
+      window.console.info('No previous elements, restarting from the first element in page');
+    }
+    //if it's #id
+    if (identifier.indexOf('#') !== -1) {
       for (i <= this.position; i >= 0; i -= 1) {
 
         if (this.dom[i]
