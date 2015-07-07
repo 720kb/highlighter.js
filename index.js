@@ -31,7 +31,7 @@
 
     var i = this.position;
 
-    if (this.dom[this.position + 1]) {
+    if (!identifier && this.dom[this.position + 1]) {
 
       this.selector = this.dom[this.position];
       this.position += 1;
@@ -41,48 +41,70 @@
       this.selector = this.dom[this.position];
       window.console.info('No next elements, restarting from the first element in page');
     }
-    //if it's #id
-    if (identifier.indexOf('#') !== -1) {
-      for (i; i <= this.dom.length; i += 1) {
 
-        if (this.dom[i]
-          && this.dom[i].id
-          && this.dom[i].id.toString() === identifier.replace('#', '')) {
+    if (identifier) {
+      //if it's #id
+      if (identifier.indexOf('#') !== -1) {
+        for (i; i <= this.dom.length; i += 1) {
 
-          this.selector = this.dom[i];
-          this.position = i + 1;
-          break;
+          if (this.dom[i]
+            && this.dom[i].id
+            && this.dom[i].id.toString() === identifier.replace('#', '')) {
+
+            this.selector = this.dom[i];
+            this.position = i + 1;
+
+            if (this.position > this.dom.length) {
+
+              this.position = 0;
+              window.console.info('No next elements, restarting from the first element in page');
+              break;
+            }
+            break;
+          }
         }
-      }
-      //if it's .class/.class .es
-    } else if (identifier.indexOf('.') !== -1) {
-      for (i; i <= this.dom.length; i += 1) {
+        //if it's .class/.class .es
+      } else if (identifier.indexOf('.') !== -1) {
+        for (i; i <= this.dom.length; i += 1) {
 
-        if (this.dom[i]
-          && this.dom[i].className
-          && this.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
+          if (this.dom[i]
+            && this.dom[i].className
+            && this.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
 
-          this.selector = this.dom[i];
-          this.position = i + 1;
-          break;
+            this.selector = this.dom[i];
+            this.position = i + 1;
+            if (this.position > this.dom.length) {
+
+              this.position = 0;
+              window.console.info('No next elements, restarting from the first element in page');
+              break;
+            }
+            break;
+          }
         }
-      }
-    //if it's a <tag>
-    } else if (identifier.indexOf('<') > -1) {
-      for (i; i <= this.dom.length; i += 1) {
+      //if it's a <tag>
+      } else if (identifier.indexOf('<') > -1) {
+        for (i; i <= this.dom.length; i += 1) {
 
-        if (this.dom[i]
-          && this.dom[i].tagName
-          && this.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
+          if (this.dom[i]
+            && this.dom[i].tagName
+            && this.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
 
-          this.selector = this.dom[i];
-          this.position = i + 1;
-          break;
+            this.selector = this.dom[i];
+            this.position = i + 1;
+            if (this.position > this.dom.length) {
+
+              this.position = 0;
+              window.console.info('No next elements, restarting from the first element in page');
+              break;
+            }
+            break;
+          }
         }
-      }
-    } else {
+      } else {
 
-      window.console.error('Please set a correct #id or .class or <tag> identifier');
+        window.console.error('Please set a correct #id or .class or <tag> identifier');
+      }
     }
   };
 
@@ -90,7 +112,7 @@
 
     var i = this.position;
 
-    if (this.dom[this.position - 1]) {
+    if (!indentifier && this.dom[this.position - 1]) {
 
       this.selector = this.dom[this.position];
       this.position -= 1;
