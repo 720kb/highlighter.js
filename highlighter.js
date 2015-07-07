@@ -2,43 +2,43 @@
 (function plainOldJs(window) {
   'use strict';
 
-  var Pointer = function initPointer() {
+  var Highlighter = function initHighlighter() {
     this.position = 0;
     this.dom = window.document.body.getElementsByTagName('*');
-    this.selector = this.dom[this.position];
+    this.element = this.dom[this.position];
   };
 
-  Pointer.prototype.highlight = function highlightSelectedElement() {
-    this.selector.scrollIntoView();
-    this.selector.style.transition = 'outline 0.55s linear';
-    this.selector.style.outline = '3px inset red';
-    this.selector.style.outlineOffset = '-2px';
+  Highlighter.prototype.underline = function underlineSelectedElement() {
+    this.element.scrollIntoView();
+    this.element.style.transition = 'outline 0.55s linear';
+    this.element.style.outline = '3px inset red';
+    this.element.style.outlineOffset = '-2px';
   };
 
-  Pointer.prototype.dehighlight = function dehighlightSelectedElement() {
-    this.selector.style.transition = 'outline none';
-    this.selector.style.outline = 'none';
+  Highlighter.prototype.erase = function eraseSelectedElement() {
+    this.element.style.transition = 'outline none';
+    this.element.style.outline = 'none';
   };
 
-  Pointer.prototype.select = function selectElement(identifier) {
-    //select direct element (reset position and selector)
+  Highlighter.prototype.select = function selectElement(identifier) {
+    //select direct element (reset position and element)
     this.position = 0;
-    this.selector = this.dom[0];
+    this.element = this.dom[0];
     this.next(identifier);
   };
 
-  Pointer.prototype.next = function selectNextElement(identifier) {
+  Highlighter.prototype.next = function selectNextElement(identifier) {
 
     var i = this.position;
 
     if (!identifier && this.dom[this.position + 1]) {
 
-      this.selector = this.dom[this.position];
+      this.element = this.dom[this.position];
       this.position += 1;
     } else {
       //no next element restart from first element
       this.position = 0;
-      this.selector = this.dom[this.position];
+      this.element = this.dom[this.position];
       window.console.info('No next elements, restarting from the first element in page');
     }
 
@@ -51,7 +51,7 @@
             && this.dom[i].id
             && this.dom[i].id.toString() === identifier.replace('#', '')) {
 
-            this.selector = this.dom[i];
+            this.element = this.dom[i];
             this.position = i + 1;
 
             if (this.position > this.dom.length) {
@@ -71,7 +71,7 @@
             && this.dom[i].className
             && this.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
 
-            this.selector = this.dom[i];
+            this.element = this.dom[i];
             this.position = i + 1;
             if (this.position > this.dom.length) {
 
@@ -90,7 +90,7 @@
             && this.dom[i].tagName
             && this.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
 
-            this.selector = this.dom[i];
+            this.element = this.dom[i];
             this.position = i + 1;
             if (this.position > this.dom.length) {
 
@@ -108,18 +108,18 @@
     }
   };
 
-  Pointer.prototype.previous = function selectPrevElement(identifier) {
+  Highlighter.prototype.previous = function selectPrevElement(identifier) {
 
     var i = this.position;
 
-    if (!indentifier && this.dom[this.position - 1]) {
+    if (!identifier && this.dom[this.position - 1]) {
 
-      this.selector = this.dom[this.position];
+      this.element = this.dom[this.position];
       this.position -= 1;
     } else {
       //no next element restart from first element
       this.position = 0;
-      this.selector = this.dom[this.position];
+      this.element = this.dom[this.position];
       window.console.info('No previous elements, restarting from the first element in page');
     }
     //if it's #id
@@ -130,7 +130,7 @@
           && this.dom[i].id
           && this.dom[i].id.toString() === identifier.replace('#', '')) {
 
-          this.selector = this.dom[i];
+          this.element = this.dom[i];
           this.position = i - 1;
 
           if (this.position < 0) {
@@ -149,7 +149,7 @@
           && this.dom[i].className
           && this.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
 
-          this.selector = this.dom[i];
+          this.element = this.dom[i];
           this.position = i - 1;
 
           if (this.position < 0) {
@@ -168,7 +168,7 @@
           && this.dom[i].tagName
           && this.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
 
-          this.selector = this.dom[i];
+          this.element = this.dom[i];
           this.position = i - 1;
           break;
         }
@@ -179,7 +179,7 @@
     }
   };
 
-  Pointer.prototype.skipNext = function skipNextElements(skip) {
+  Highlighter.prototype.skipNext = function skipNextElements(skip) {
     if (Number(skip) > 0) {
 
       this.position += skip;
@@ -192,7 +192,7 @@
     }
   };
 
-  Pointer.prototype.skipPrev = function skipPrevElements(skip) {
+  Highlighter.prototype.skipPrev = function skipPrevElements(skip) {
     if (Number(skip) > 0) {
 
       this.position -= skip;
@@ -205,5 +205,5 @@
     }
   };
 
-  window.Pointer = Pointer;
+  window.Highlighter = Highlighter;
 }(window));
