@@ -11,7 +11,7 @@
   Highlighter.prototype.underline = function underlineSelectedElement() {
     this.element.scrollIntoView();
     this.element.style.transition = 'outline 0.55s linear';
-    this.element.style.outline = '3px inset red';
+    this.element.style.outline = '3px inset #08FD31';
     this.element.style.outlineOffset = '-2px';
   };
 
