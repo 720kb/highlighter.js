@@ -109,4 +109,5 @@ Highlighter.select('<span>');
 
 ##Gtk
 if no selectable next elements, Highlighter will restart from the first element in DOM
+
 if no selectable previous elements, Highlighter will restart from the first element in DOM
