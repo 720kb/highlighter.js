@@ -3,7 +3,7 @@
   'use strict';
 
   var Highlighter = function initHighlighter() {
-    this.position = 0
+    this.position = 0;
     this.dom = window.document.body.getElementsByTagName('*');
     this.element = this.dom[this.position];
   };
