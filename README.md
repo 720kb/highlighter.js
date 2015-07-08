@@ -8,12 +8,12 @@ http://caniuse.com/#feat=queryselector
 
 ###Installation
 
-####Manually
+####HTML
 ```
 <!DOCTYPE html>
 <html>
 <head>
-<script src="../dist/highlighter.min.js"></script>
+<script src="../path/to/highlighter.min.js"></script>
 </head>
 <body>
 //your body here...
@@ -25,7 +25,10 @@ http://caniuse.com/#feat=queryselector
 bower install highlighter.js
 ```
 
-####Npm ....
+####Npm
+```
+....
+```
 
 ###Usage
 ```
