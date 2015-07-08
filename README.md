@@ -5,8 +5,16 @@ Highlighter.js is a tiny (pure javascript) library, to allow you to easily navig
 
 ###Installation
 
-.....
+####Manually
+```
+<html>
+<body>
+<script src="../dist/highlighter.min.js"></script>
+</body>
+```
+####Bower
 
+####Npm
 ###Usage
 ```
 var Highlighter = new window.Highlighter();
