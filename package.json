@@ -26,6 +26,7 @@
   "dependencies": {},
   "devDependencies": {
     "eslint": "*",
+    "husky": "*",
     "jscs": "*",
     "uglifyjs": "*"
   }
