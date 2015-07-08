@@ -1,20 +1,26 @@
 {
-  "name": "highlighter",
+  "name": "highlighter.js",
   "version": "0.0.1",
+  "description": "Highlighter.js is a tiny (pure javascript) library to allow you to navigate, select and highlight DOM elements.",
   "homepage": "https://github.com/720kb/highlighter.js",
   "authors": [
-    "45kb <filippo.oretti@gmail.com>"
+    "45kb <filippo.oretti@gmail.com>",
     "wouldgo <wouldgo84@gmail.com>"
   ],
   "main": "dist/highlighter.min.js",
-  "moduleType": [
-    "globals"
-  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
     "bower_components",
     "test",
     "tests"
+  ],
+  "keywords": [
+    "dom",
+    "navigate",
+    "highlight",
+    "javascript",
+    "selectors",
+    "highlighter.js"
   ]
 }
