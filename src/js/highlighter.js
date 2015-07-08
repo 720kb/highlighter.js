@@ -1,11 +1,38 @@
+/*eslint-disable*/
+//jscs:disable
+/**
+ * Author: Jason Farrell
+ * Author URI: http://useallfive.com/
+ *
+ * Description: Checks if a DOM element is truly visible.
+ * Package URL: https://github.com/UseAllFive/true-visibility
+ */
+Element.prototype.isVisible=function(){"use strict";function e(f,n,i,d,r,u,l){var s=f.parentNode,p=2;return o(f)?9===s.nodeType?!0:"0"===t(f,"opacity")||"none"===t(f,"display")||"hidden"===t(f,"visibility")?!1:(("undefined"==typeof n||"undefined"==typeof i||"undefined"==typeof d||"undefined"==typeof r||"undefined"==typeof u||"undefined"==typeof l)&&(n=f.offsetTop,r=f.offsetLeft,d=n+f.offsetHeight,i=r+f.offsetWidth,u=f.offsetWidth,l=f.offsetHeight),s?"hidden"!==t(s,"overflow")&&"scroll"!==t(s,"overflow")||!(r+p>s.offsetWidth+s.scrollLeft||r+u-p<s.scrollLeft||n+p>s.offsetHeight+s.scrollTop||n+l-p<s.scrollTop)?(f.offsetParent===s&&(r+=s.offsetLeft,n+=s.offsetTop),e(s,n,i,d,r,u,l)):!1:!0):!1}function t(e,t){return window.getComputedStyle?document.defaultView.getComputedStyle(e,null)[t]:e.currentStyle?e.currentStyle[t]:void 0}function o(e){for(;e=e.parentNode;)if(e==document)return!0;return!1}return e(this)};
+//jscs:enable
+/*eslint-enable */
 /*global window*/
 (function plainOldJs(window) {
   'use strict';
 
-  var Highlighter = function initHighlighter() {
+  var Highlighter = function initHighlighter(opt) {
+
+    var newDOM = []
+      , i = 0;
+
     this.position = 0;
     this.dom = window.document.body.getElementsByTagName('*');
     this.element = this.dom[this.position];
+
+    if (opt && opt.viewable) {
+      for (i; i <= this.dom.length; i += 1) {
+        if (this.dom[i]
+        && this.dom[i].isVisible()) {
+
+          newDOM.push(this.dom[i]);
+        }
+      }
+      this.dom = newDOM;
+    }
   };
 
   Highlighter.prototype.underline = function underlineSelectedElement() {
