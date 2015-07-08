@@ -14,7 +14,7 @@ Highlighter.underline();
 
 window.console.log('Highlighter underlined this element:', Highlighter.element);
 ```
-##Options
+##Commands
 
 ###Select Next
 _Select next element starting from the current selected element (by default is the first DOM element)_
@@ -89,9 +89,9 @@ _Select first element in the DOM by < tag > name_
 ```
 Highlighter.select('<span>');
 ```
+##Options
 
-###Default
+##TBK
 
 if no selectable next elements, Highlighter will restart from the first element in DOM
-
 if no selectable previous elements, Highlighter will restart from the first element in DOM
