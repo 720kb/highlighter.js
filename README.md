@@ -1,3 +1,5 @@
+![highlighter javascript ]({{site.baseurl}}/http://i.imgur.com/y8SgXiX.png)
+
 ###Highlighter.js
 Highlighter.js is a tiny (pure javascript) library, to allow you to easily navigate, select and highlight the DOM elements.
 
