@@ -1,5 +1,5 @@
 ###Highlighter.js
-Highlighter.js is a tiny (pure javascript) library, to allow you to navigate and highlight the DOM elements.
+Highlighter.js is a tiny (pure javascript) library, to allow you to easily navigate, select and highlight the DOM elements.
 
 ###Installation
 
