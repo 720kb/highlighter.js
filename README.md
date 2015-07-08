@@ -20,7 +20,10 @@ http://caniuse.com/#feat=queryselector
 //If you prefer performances, you can load the script at the bottom of your <body> instead of inside <head>
 </body>
 ```
-####Bower ...
+####Bower
+```
+bower install highlighter.js
+```
 
 ####Npm ....
 
