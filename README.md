@@ -7,9 +7,14 @@ Highlighter.js is a tiny (pure javascript) library, to allow you to easily navig
 
 ####Manually
 ```
+<!DOCTYPE html>
 <html>
-<body>
+<head>
 <script src="../dist/highlighter.min.js"></script>
+</head>
+<body>
+//your body here...
+//If you prefer performances, you can load the script at the bottom of your <body> instead of inside <head>
 </body>
 ```
 ####Bower
