@@ -17,9 +17,10 @@ Highlighter.js is a tiny (pure javascript) library, to allow you to easily navig
 //If you prefer performances, you can load the script at the bottom of your <body> instead of inside <head>
 </body>
 ```
-####Bower
+####Bower ...
 
-####Npm
+####Npm ....
+
 ###Usage
 ```
 var Highlighter = new window.Highlighter();
@@ -29,6 +30,8 @@ Highlighter.underline();
 
 window.console.log('Highlighter underlined this element:', Highlighter.element);
 ```
+###Demo ...
+
 ##Commands
 
 ####Select Next
@@ -119,6 +122,6 @@ Highlighter.select('<span>');
 ....
 
 ##Gtk
-if no selectable next elements, Highlighter will restart from the first element in DOM
-
-if no selectable previous elements, Highlighter will restart from the first element in DOM
+- Not yet 100% ready for production
+- If no selectable next elements, Highlighter will restart from the first element in DOM
+- If no selectable previous elements, Highlighter will restart from the first element in DOM
