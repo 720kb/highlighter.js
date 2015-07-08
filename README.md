@@ -1,6 +1,6 @@
 ![highlighter javascript ](http://i.imgur.com/xcwmSM4.png)
 
-###Highlighter.js
+
 Highlighter.js is a tiny (pure javascript) library, to allow you to easily navigate, select and highlight the DOM elements.
 
 ###Installation
