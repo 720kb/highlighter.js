@@ -124,7 +124,7 @@ Highlighter.select('<span>');
 ##Options
 
 ####Exclude hidden/invisible elements
-_Sometimes you could need to work only on visible/viewable elements, so to skip invisible or hidden elements set the option ```{ viewable:true}```
+Sometime you could need to work only on visible/viewable elements, so, to skip invisible or hidden elements, set the option ```{ viewable:true}```
 
 ```
 var Highlighter = new window.Highlighter({
