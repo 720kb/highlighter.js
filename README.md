@@ -3,6 +3,9 @@
 
 Highlighter.js is a tiny (pure javascript) library, to allow you to easily navigate, select and highlight the DOM elements.
 
+###Browser Support
+http://caniuse.com/#feat=queryselector
+
 ###Installation
 
 ####Manually
