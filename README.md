@@ -42,6 +42,17 @@ _Select previous element starting from the current selected element ( by default
 ```
 Highlighter.previous();
 ```
+####Skip Next
+_Skip a bunch of next elements starting from the current selected element_
+```
+Highlighter.skipNext(50);
+```
+
+####Skip Next
+_Skip a bunch of previous elements starting from the current selected element_
+```
+Highlighter.skipPrev(35);
+```
 
 ####Underline
 _Scroll to and highlight the current selected element_
