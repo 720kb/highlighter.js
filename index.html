@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Highlighter.js</title>
+    <meta name="description" content="Highlighter.js is a tiny (pure javascript) library, to allow you to easily navigate, select and highlight the DOM elements."/>
+    <link rel="stylesheet" type="text/css" href="//720kb.github.io/csshelper/assets/ext/src/helper.css">
+    <link rel="stylesheet" type="text/css" href="extra.css">
+    <script src="bower_components/highlighter.js/dist/highlighter.min.js"></script>
+  </head>
+  <body class="bg-greeny">
+    <div class="line-compress bg-white center-content">
+      <img class="img-banner" width="60%" src="https://camo.githubusercontent.com/650245687459cb91cb6047ddb9e110ee56922616/687474703a2f2f692e696d6775722e636f6d2f586d487a366d6a2e706e67"/>
+    <div class="separator30"></div>
+    </div>
+    <div class="separator100"></div>
+    <div class="line">
+    <div class="separator50"></div>
+    <div class="center-content">
+      <h6 class="font-medium color-muted">I will start highlighting every element on the page</h6>
+      <div class="separator15"></div>
+    <button id="button" class="btn btn-medium btn-max bg-muted radius3 color-muted">Highlight</div>
+    </div>
+    <div class="separator100"></div>
+    </div>
+    <footer class="line center-content color-muted">
+      <small>Brought to you by <a class="color-black" href="//720kb.net">720kb.net</a></small>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+
+        var Highlighter = new window.Highlighter({
+          'viewable':true
+        })
+        , button = document.getElementById('button')
+        , i = 0
+        , go = function () {
+          console.log('go');
+            Highlighter.erase();
+            Highlighter.next();
+            Highlighter.underline();
+            button.innerHTML = 'Next';
+        };
+
+        button.addEventListener('click', function () {
+          go();
+        });
+      });
+    </script>
+  </body>
+</html>
