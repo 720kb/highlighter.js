@@ -154,6 +154,7 @@ var Highlighter = new Highlighter({
 
 ##Gtk
 - Not yet 100% ready for production
+- isVisible() control need a deep check, it could probably mistake at any time
 - Scroller is a bit horrible atm
 - If no selectable next elements, Highlighter will restart from the first element in DOM
 - If no selectable previous elements, Highlighter will restart from the first element in DOM
