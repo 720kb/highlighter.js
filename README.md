@@ -9,7 +9,7 @@ http://caniuse.com/#feat=queryselector
 ###Installation
 
 ####HTML
-```
+```html
 <!DOCTYPE html>
 <html>
 <head>
