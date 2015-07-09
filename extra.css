@@ -1,4 +1,10 @@
-body,html{
+html {
+  overflow: hidden;
+  height: 100%;
+}
+body {
+  height: 100%;
+  overflow: auto;
   font-family: 'Helvetica Neue';
 }
 small, small *{
@@ -10,8 +16,11 @@ i.fa{
 .btn-max{
   max-width:200px;
 }
+.bg-green{
+  background-color:yellowgreen;
+}
 .bg-greeny{
-  background-color:#DFFDE1;
+  background-color:#EDF3ED;
 }
 .btn:active{
   box-shadow:0 2px 2px rgba(0,0,0,0.3) inset;
