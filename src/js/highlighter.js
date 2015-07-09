@@ -80,7 +80,7 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
   Highlighter.prototype.select = function selectElement(identifier) {
     //select direct element (reset position and element)
     this.position = 0;
-    this.element = this.dom[0];
+    this.element = this.dom[this.position];
     this.next(identifier);
   };
 
@@ -99,13 +99,12 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
 
             this.element = this.dom[i];
             this.position = i + 1;
-
-            if (this.position > this.dom.length) {
-
-              this.position = 0;
-              window.console.info('No next elements, restarting from the first element in page');
-              break;
-            }
+            break;
+          }
+          if (i >= this.dom.length) {
+            this.position = 0;
+            this.element = this.dom[this.position];
+            window.console.info('No next elements, restarting from the first element in page');
             break;
           }
         }
@@ -119,12 +118,12 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
 
             this.element = this.dom[i];
             this.position = i + 1;
-            if (this.position > this.dom.length) {
-
-              this.position = 0;
-              window.console.info('No next elements, restarting from the first element in page');
-              break;
-            }
+            break;
+          }
+          if (i >= this.dom.length) {
+            this.position = 0;
+            this.element = this.dom[this.position];
+            window.console.info('No next elements, restarting from the first element in page');
             break;
           }
         }
@@ -138,12 +137,12 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
 
             this.element = this.dom[i];
             this.position = i + 1;
-            if (this.position > this.dom.length) {
-
-              this.position = 0;
-              window.console.info('No next elements, restarting from the first element in page');
-              break;
-            }
+            break;
+          }
+          if (i >= this.dom.length) {
+            this.position = 0;
+            this.element = this.dom[this.position];
+            window.console.info('No next elements, restarting from the first element in page');
             break;
           }
         }
@@ -158,6 +157,7 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
       if (this.position > this.dom.length) {
 
         this.position = 0;
+        this.element = this.dom[this.position];
         window.console.info('No next elements, restarting from the first element in page');
       }
       this.element = this.dom[this.position];
@@ -179,12 +179,12 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
 
             this.element = this.dom[i];
             this.position = i - 1;
-
-            if (this.position < 0) {
-              this.position = 0;
-              window.console.info('No previous elements, restarting from the first element in page');
-              break;
-            }
+            break;
+          }
+          if (i < this.dom.length) {
+            this.position = 0;
+            this.element = this.dom[0];
+            window.console.info('No previous elements, restarting from the first element in page');
             break;
           }
         }
@@ -198,12 +198,12 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
 
             this.element = this.dom[i];
             this.position = i - 1;
-
-            if (this.position < 0) {
-              this.position = 0;
-              window.console.info('No previous elements, restarting from the first element in page');
-              break;
-            }
+            break;
+          }
+          if (i < this.dom.length) {
+            this.position = 0;
+            this.element = this.dom[0];
+            window.console.info('No previous elements, restarting from the first element in page');
             break;
           }
         }
@@ -217,6 +217,12 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
 
             this.element = this.dom[i];
             this.position = i - 1;
+            break;
+          }
+          if (i < this.dom.length) {
+            this.position = 0;
+            this.element = this.dom[0];
+            window.console.info('No previous elements, restarting from the first element in page');
             break;
           }
         }
@@ -246,6 +252,7 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
     if (Number(skip) > this.dom.length) {
 
       this.position = 0;
+      this.element = this.dom[this.position];
       window.console.log('No next elements, restarting from the first DOM element');
     }
   };
@@ -259,6 +266,7 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
     if (this.position < 0) {
 
       this.position = 0;
+      this.element = this.dom[this.position];
       window.console.log('No previous elements, restarting from the first DOM element');
     }
   };
