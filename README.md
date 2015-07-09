@@ -36,7 +36,7 @@ npm install highlighter.js
 ```javascript
 document.addEventListener("DOMContentLoaded", function() {
 
-  var Highlighter = new Highlighter();
+  var Highlighter = new window.Highlighter();
 
   Highlighter.next('<div>');
   Highlighter.underline();
@@ -139,7 +139,7 @@ Highlighter.select('<span>');
 Sometime you could need to work only on visible/viewable elements, so, to skip invisible or hidden elements, set the option ```{ viewable:true}```
 
 ```javascript
-var Highlighter = new Highlighter({
+var Highlighter = new window.Highlighter({
   'viewable':true //this way Highlighter.js will exclude/avoid selecting or highlighting hidden/invisible elements
 });
 ```
@@ -155,6 +155,7 @@ var Highlighter = new Highlighter({
 
 ##Gtk
 - Not yet 100% ready for production
+- If your element/s has ```outline:``` CSS rule setted up, there could be problems or maybe not.
 - isVisible() control need a deep check, it could probably mistake at any time
 - Scroller is a bit horrible atm
 - If no selectable next elements, Highlighter will restart from the first element in DOM
