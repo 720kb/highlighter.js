@@ -32,12 +32,15 @@ bower install highlighter.js
 
 ###Usage
 ```
-var Highlighter = new window.Highlighter();
+document.addEventListener("DOMContentLoaded", function(event) {
 
-Highlighter.next('<div>');
-Highlighter.underline();
+  var Highlighter = new Highlighter();
 
-window.console.log('Highlighter underlined this element:', Highlighter.element);
+  Highlighter.next('<div>');
+  Highlighter.underline();
+
+  window.console.log('Highlighter underlined this element:', Highlighter.element);
+});
 ```
 ###Demo ...
 
@@ -138,7 +141,17 @@ var Highlighter = new window.Highlighter({
 });
 ```
 
+####Scroll to the underlined element
+Sometime you could need to scroll to the current underlined element, so, to automatically scroll to it once is underlined you can set the options ```{scroll:true, scrollDuration: 500 }```
+```
+var Highlighter = new window.Highlighter({
+  'scroll':true, //Automatically scroll to the underlined element
+  'scrollDuration': 500 //milliseconds
+});
+```
+
 ##Gtk
 - Not yet 100% ready for production
+- Scroller is a bit horrible atm
 - If no selectable next elements, Highlighter will restart from the first element in DOM
 - If no selectable previous elements, Highlighter will restart from the first element in DOM

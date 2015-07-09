@@ -7,6 +7,20 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="../../src/js/highlighter.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var h = new Highlighter({
+      'viewable':true,
+      'scroll':true,
+      'scrollDuration':300
+    });
+
+    window.setInterval(function () {
+      h.next();
+      h.underline();
+    }, 500);
+  });
+  </script>
 </head>
 <body>
     <!-- Fixed navbar -->
@@ -543,7 +557,7 @@
             </div>
           </div>
         </div><!-- /.col-sm-4 -->
-        <div class="col-sm-4">
+        <div id="asd" class="col-sm-4">
           <div class="panel panel-warning">
             <div class="panel-heading">
               <h3 class="panel-title">Panel title</h3>
