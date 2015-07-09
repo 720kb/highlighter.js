@@ -59,14 +59,20 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
   Highlighter.prototype.underline = function underlineSelectedElement() {
 
     this.scroller(this.element, 500);
-    this.element.style.transition = 'outline 0.55s linear';
-    this.element.style.outline = '3px inset #08FD31';
-    this.element.style.outlineOffset = '-2px';
+
+    if (this.element.style) {
+      this.element.style.transition = 'outline 0.55s linear';
+      this.element.style.outline = '3px inset #08FD31';
+      this.element.style.outlineOffset = '-2px';
+    }
   };
 
   Highlighter.prototype.erase = function eraseSelectedElement() {
-    this.element.style.transition = 'outline none';
-    this.element.style.outline = 'none';
+
+    if (this.element.style) {
+      this.element.style.transition = 'outline none';
+      this.element.style.outline = 'none';
+    }
   };
 
   Highlighter.prototype.select = function selectElement(identifier) {
