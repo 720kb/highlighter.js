@@ -8,7 +8,7 @@
     "precommit": "npm run-script lint"
   },
   "files": [
-    "src/js/highlighter.js"
+    "dist/highlighter.min.js"
   ],
   "repository": {
     "type": "git",
