@@ -1,6 +1,6 @@
 {
   "name": "highlighter.js",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Highlighter.js is a tiny (pure javascript) library to allow you to navigate, select and highlight DOM elements.",
   "homepage": "https://github.com/720kb/highlighter.js",
   "authors": [
@@ -23,14 +23,14 @@
     "selectors",
     "highlighter.js"
   ],
-  "_release": "0.1.2",
+  "_release": "0.1.4",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.2",
-    "commit": "aa29f2db7528d243863345977646db516d6cc93e"
+    "tag": "0.1.4",
+    "commit": "a627a402d4d43a4bc58f231ad4f12949b6b71557"
   },
   "_source": "git://github.com/720kb/highlighter.js.git",
-  "_target": "~0.1.2",
+  "_target": "~0.1.4",
   "_originalSource": "highlighter.js",
   "_direct": true
 }
