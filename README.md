@@ -1,4 +1,4 @@
-![highlighter javascript ](http://i.imgur.com/xcwmSM4.png)
+![highlighter javascript ](http://i.imgur.com/XmHz6mj.png)
 
 
 Highlighter.js is a tiny (pure javascript) library, to allow you to easily navigate, select and highlight the DOM elements.
@@ -8,21 +8,27 @@ http://caniuse.com/#feat=queryselector
 
 ###Installation
 
-####Manually
+####HTML
 ```
 <!DOCTYPE html>
 <html>
 <head>
-<script src="../dist/highlighter.min.js"></script>
+<script src="../path/to/highlighter.min.js"></script>
 </head>
 <body>
 //your body here...
 //If you prefer performances, you can load the script at the bottom of your <body> instead of inside <head>
 </body>
 ```
-####Bower ...
+####Bower
+```
+bower install highlighter.js
+```
 
-####Npm ....
+####Npm
+```
+....
+```
 
 ###Usage
 ```
