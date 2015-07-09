@@ -138,7 +138,7 @@ Highlighter.select('<span>');
 Sometime you could need to work only on visible/viewable elements, so, to skip invisible or hidden elements, set the option ```{ viewable:true}```
 
 ```javascript
-var Highlighter = new window.Highlighter({
+var Highlighter = new Highlighter({
   'viewable':true //this way Highlighter.js will exclude/avoid selecting or highlighting hidden/invisible elements
 });
 ```
@@ -146,7 +146,7 @@ var Highlighter = new window.Highlighter({
 ####Scroll to the underlined element
 Sometime you could need to scroll to the current underlined element, so, to automatically scroll to it once is underlined you can set the options ```{scroll:true, scrollDuration: 500 }```
 ```javascript
-var Highlighter = new window.Highlighter({
+var Highlighter = new Highlighter({
   'scroll':true, //Automatically scroll to the underlined element
   'scrollDuration': 500 //milliseconds
 });
