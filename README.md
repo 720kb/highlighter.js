@@ -1,7 +1,7 @@
 ![highlighter javascript ](http://i.imgur.com/XmHz6mj.png)
 
 
-Highlighter.js is a tiny (pure javascript) library, to allow you to easily navigate, select and highlight the DOM elements.
+Highlighter**.js** is a tiny (pure javascript) library, to allow you to easily navigate, select and highlight the DOM elements.
 
 ###Browser Support
 
