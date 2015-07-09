@@ -45,8 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 ```
 ###Demo
-Live demo:
-[Demo url](http://720kb.github.io/highlighter.js/ "Highlighter.js")
+[Live demo](http://720kb.github.io/highlighter.js/ "Highlighter.js")
 
 ##Commands
 
