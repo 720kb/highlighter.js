@@ -147,7 +147,7 @@ var Highlighter = new window.Highlighter({
 ####Scroll to the underlined element
 Sometime you could need to scroll to the current underlined element, so, to automatically scroll to it once is underlined you can set the options ```{scroll:true, scrollDuration: 500 }```
 ```javascript
-var Highlighter = new Highlighter({
+var Highlighter = new window.Highlighter({
   'scroll':true, //Automatically scroll to the underlined element
   'scrollDuration': 500 //milliseconds
 });
