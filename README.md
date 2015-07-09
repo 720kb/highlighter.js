@@ -1,4 +1,4 @@
-![highlighter javascript ](http://i.imgur.com/xcwmSM4.png)
+![highlighter javascript ](http://i.imgur.com/XmHz6mj.png)
 
 
 Highlighter.js is a tiny (pure javascript) library, to allow you to easily navigate, select and highlight the DOM elements.
