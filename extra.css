@@ -4,6 +4,9 @@ body,html{
 small, small *{
   font-size: 12px;
 }
+i.fa{
+  font-size: 20px;
+}
 .btn-max{
   max-width:200px;
 }
@@ -18,4 +21,7 @@ small, small *{
 }
 .img-banner{
   min-width:320px;
+}
+.label{
+padding:5px 5px;
 }

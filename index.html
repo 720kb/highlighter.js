@@ -6,10 +6,20 @@
     <meta name="description" content="Highlighter.js is a tiny (pure javascript) library, to allow you to easily navigate, select and highlight the DOM elements."/>
     <link rel="stylesheet" type="text/css" href="//720kb.github.io/csshelper/assets/ext/src/helper.css">
     <link rel="stylesheet" type="text/css" href="extra.css">
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="bower_components/highlighter.js/dist/highlighter.min.js"></script>
   </head>
   <body class="bg-greeny">
     <div class="line-compress bg-white center-content">
+      <div class="line-compress right-content">
+        <div class="separator15"></div>
+        <a class="toggle-opacity-hover color-black font-bold" href="//github.com/720kb/highlighter.js">
+          &nbsp;
+          <i class="fa fa-github-alt"></i>
+          See on Github
+          &nbsp;
+          </a>
+      </div>
       <img class="img-banner" width="60%" src="https://camo.githubusercontent.com/650245687459cb91cb6047ddb9e110ee56922616/687474703a2f2f692e696d6775722e636f6d2f586d487a366d6a2e706e67"/>
     <div class="col4 offset-left3 color-muted line-tablet line-mobile">
       <div class="line-compress">
@@ -25,6 +35,7 @@
       <h6 class="font-medium color-muted">I will start highlighting every element on the page</h6>
       <div class="separator50"></div>
     <button id="button" class="btn btn-medium btn-max bg-muted radius3 color-muted">Highlight</div>
+      <div class="separator50"></div>
     </div>
     <div class="separator100"></div>
     </div>
@@ -40,7 +51,7 @@
         , button = document.getElementById('button')
         , i = 0
         , go = function () {
-          
+
             Highlighter.erase();
             Highlighter.next();
             Highlighter.underline();
