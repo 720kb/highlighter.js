@@ -21,12 +21,12 @@ http://caniuse.com/#feat=queryselector
 </body>
 ```
 ####Bower
-```
+```shell
 bower install highlighter.js
 ```
 
 ####Npm
-```
+```shell
 npm install highlighter.js
 ```
 
