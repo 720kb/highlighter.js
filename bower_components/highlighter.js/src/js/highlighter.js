@@ -60,7 +60,8 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
 
     this.scroller(this.element, 500);
 
-    if (this.element.style) {
+    if (this.element
+      && this.element.style) {
       this.element.style.transition = 'outline 0.55s linear';
       this.element.style.outline = '3px inset #08FD31';
       this.element.style.outlineOffset = '-2px';
@@ -69,7 +70,8 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
 
   Highlighter.prototype.erase = function eraseSelectedElement() {
 
-    if (this.element.style) {
+    if (this.element
+      && this.element.style) {
       this.element.style.transition = 'outline none';
       this.element.style.outline = 'none';
     }
