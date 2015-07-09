@@ -31,7 +31,7 @@ npm install highlighter.js
 ```
 
 ###Usage
-```
+```javascript
 document.addEventListener("DOMContentLoaded", function(event) {
 
   var Highlighter = new Highlighter();
