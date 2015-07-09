@@ -27,7 +27,7 @@ bower install highlighter.js
 
 ####Npm
 ```
-....
+npm install highlighter.js
 ```
 
 ###Usage
