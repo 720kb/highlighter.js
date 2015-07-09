@@ -1,0 +1,44 @@
+{
+  "name": "highlighter.js",
+  "version": "0.1.0",
+  "description": "Highlighter.js is a tiny (pure javascript) library to allow you to navigate, select and highlight DOM elements.",
+  "scripts": {
+    "js-min": "./tasks/banner | xargs -0 -I banner uglifyjs src/js/highlighter.js --preamble banner -c -m --screw-ie8 -p relative --source-map dist/highlighter.min.js.map -o dist/highlighter.min.js",
+    "lint": "eslint -c .eslintrc src && jscs -c .jscsrc src",
+    "precommit": "npm run-script lint"
+  },
+  "keywords": [
+    "dom",
+    "navigate",
+    "browse",
+    "highlight",
+    "highlighter",
+    "javascript",
+    "selector",
+    "underline",
+    "elements"
+  ],
+  "files": [
+    "dist/highlighter.min.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/720kb/highlighter.js.git"
+  },
+  "author": "Filippo Oretti <filippo.oretti@gmail.com>",
+  "contributors": [
+    "Dario Andrei <wouldgo84@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/720kb/highlighter.js/issues"
+  },
+  "homepage": "https://github.com/720kb/highlighter.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "*",
+    "husky": "*",
+    "jscs": "*",
+    "uglifyjs": "*"
+  }
+}
