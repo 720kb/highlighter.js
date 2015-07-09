@@ -50,13 +50,11 @@
     <script>
       document.addEventListener("DOMContentLoaded", function() {
 
-        var Highlighter = new window.Highlighter({
-          'viewable':true
-        })
+        var Highlighter = new window.Highlighter()
         , button = document.getElementById('button')
         , i = 0
         , go = function () {
-
+          console.log(Highlighter.element);
             Highlighter.erase();
             Highlighter.next();
             Highlighter.underline();
