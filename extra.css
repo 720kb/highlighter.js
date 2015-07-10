@@ -13,6 +13,15 @@ small, small *{
 i.fa{
   font-size: 20px;
 }
+.color-greeny{
+  color:#00D629;
+}
+#result b{
+  font-weight:500;
+}
+#result{
+  font-size:13px;
+}
 .btn-max{
   max-width:200px;
 }
@@ -33,4 +42,8 @@ i.fa{
 }
 .label{
 padding:5px 5px;
+}
+.results{
+  max-width:480px;
+  width:90%;
 }

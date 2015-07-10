@@ -28,15 +28,17 @@
     </div>
     <div class="separator30"></div>
     </div>
-    <div class="separator100"></div>
+    <div class="separator50"></div>
     <div class="line">
     <div class="separator15"></div>
-    <div class="center-content">
-      <h6 class="font-medium color-muted">I will start highlighting every element on the page</h6>
-      <div class="separator50"></div>
+          <div class="line-compress center-content bg-muted-inverse fixed bottom" id="result"></div>
+      <div class="separator15"></div>
+      <h6 class="font-medium color-muted center-content">Click the button to highlight elements</h6>
+      <div class="separator30"></div>
     <button id="button" class="btn btn-medium btn-max bg-muted radius3 color-muted">Highlight</div>
       <div class="separator50"></div>
     </div>
+    <div class="separator100"></div>
     <div class="separator100"></div>
     </div>
     <footer class="line center-content color-muted">
@@ -45,20 +47,52 @@
         Brought to you by
          <a class="color-black" href="//720kb.net">720kb.net</a>
        </small>
-      <div class="separator30"></div>
+      <div class="separator100"></div>
     </footer>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
 
         var Highlighter = new window.Highlighter()
         , button = document.getElementById('button')
+        , result = document.getElementById('result')
+        , nodeName
+        , classList
+        , alias
+        , id
         , i = 0
         , go = function () {
-          console.log(Highlighter.element);
+
             Highlighter.erase();
             Highlighter.next();
             Highlighter.underline();
             button.innerHTML = 'Next';
+
+            if (Highlighter.element.id) {
+
+              id = Highlighter.element.id;
+            } else {
+
+              id = '';
+            }
+
+            if (Highlighter.element.classList) {
+
+              classList = Highlighter.element.classList;
+            } else {
+
+              classList = '';
+            }
+            if (Highlighter.element.nodeName) {
+
+              nodeName = Highlighter.element.nodeName.toLowerCase();
+            } else {
+              nodeName = '';
+            }
+
+            result.innerHTML = '<div class="separator10"></div><b>Highlighter<b class="color-greeny">.element</b></b> = {&nbsp;&nbsp;<b>nodeName:</b> <span class="color-muted">' + nodeName + ',</span>' +
+            '&nbsp;&nbsp;<b>classList:</b> <span class="color-muted">' +  classList + ',</span>' +
+            '&nbsp;&nbsp;<b>id:</b> <span class="color-muted">' + id + '}</span><div class="separator10"></div>';
+
         };
 
         button.addEventListener('click', function () {
