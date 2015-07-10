@@ -5,8 +5,11 @@ Highlighter**.js** is a tiny (pure javascript) library, to allow you to easily n
 
 ###Browser Support
 
-Depending on this:
+Depending on:
+
 http://caniuse.com/#feat=queryselector
+
+https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
 
 ###Installation
 
