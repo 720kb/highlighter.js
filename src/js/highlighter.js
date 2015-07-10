@@ -54,7 +54,10 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
 
   Highlighter.prototype.scroller = function scrollingTo(element) {
 
-    window.smoothScroll(element, this.scrollDuration);
+    if (this.scroll) {
+
+      window.smoothScroll(element, this.scrollDuration);
+    }
   };
   Highlighter.prototype.underline = function underlineSelectedElement() {
 
@@ -103,7 +106,6 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
           }
           if (i >= this.dom.length) {
             this.position = 0;
-            this.element = this.dom[this.position];
             window.console.info('No next elements, restarting from the first element in page');
             break;
           }
@@ -122,7 +124,6 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
           }
           if (i >= this.dom.length) {
             this.position = 0;
-            this.element = this.dom[this.position];
             window.console.info('No next elements, restarting from the first element in page');
             break;
           }
@@ -133,7 +134,7 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
 
           if (this.dom[i]
             && this.dom[i].tagName
-            && this.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
+            && this.dom[i].tagName.toString().toLowerCase() === identifier.replace('<', '').replace('>', '')) {
 
             this.element = this.dom[i];
             this.position = i + 1;
@@ -141,7 +142,6 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
           }
           if (i >= this.dom.length) {
             this.position = 0;
-            this.element = this.dom[this.position];
             window.console.info('No next elements, restarting from the first element in page');
             break;
           }
@@ -183,7 +183,6 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
           }
           if (i < this.dom.length) {
             this.position = 0;
-            this.element = this.dom[0];
             window.console.info('No previous elements, restarting from the first element in page');
             break;
           }
@@ -202,7 +201,6 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
           }
           if (i < this.dom.length) {
             this.position = 0;
-            this.element = this.dom[0];
             window.console.info('No previous elements, restarting from the first element in page');
             break;
           }
@@ -213,7 +211,7 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
 
           if (this.dom[i]
             && this.dom[i].tagName
-            && this.dom[i].tagName.toString().toLowerCase().indexOf(identifier.replace('<', '').replace('>', '')) !== -1) {
+            && this.dom[i].tagName.toString().toLowerCase() === identifier.replace('<', '').replace('>', '')) {
 
             this.element = this.dom[i];
             this.position = i - 1;
@@ -221,7 +219,6 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
           }
           if (i < this.dom.length) {
             this.position = 0;
-            this.element = this.dom[0];
             window.console.info('No previous elements, restarting from the first element in page');
             break;
           }
