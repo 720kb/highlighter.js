@@ -73,13 +73,13 @@ Highlighter.skipPrev(35);
 ```
 
 ####Underline
-_Scroll to and highlight the current selected element_
+_Highlight the current selected element_
 ```javascript
 Highlighter.underline();
 ```
 
 #### Erase
-_Remove underline from the current selected element_
+_Remove highlighting from the current selected element_
 ```javascript
 Highlighter.erase();
 ```
