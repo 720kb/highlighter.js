@@ -29,6 +29,8 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
     this.element = this.dom[this.position];
     this.scroll = false;
     this.scrollDuration = 500;
+    this.classAliasList = [];
+    this.identifierClassArray = [];
 
     if (opt) {
 
@@ -87,6 +89,14 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
     this.next(identifier);
   };
 
+  Highlighter.prototype.arrayCompared = function comparedArray(firstArray, secondArray) {
+
+    return firstArray.filter(function returnOne(one) {
+
+      return secondArray.indexOf(one) > -1;
+    });
+  };
+
   Highlighter.prototype.next = function selectNextElement(identifier) {
 
     var i = this.position;
@@ -112,15 +122,23 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
         }
         //if it's .class/.class .es
       } else if (identifier.indexOf('.') !== -1) {
+
+        this.identifierClassArray = identifier.toString().replace('.', '').split(' ');
+
         for (i; i <= this.dom.length; i += 1) {
 
           if (this.dom[i]
-            && this.dom[i].className
-            && this.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
+            && this.dom[i].classList
+            && identifier.indexOf('.') !== -1) {
 
-            this.element = this.dom[i];
-            this.position = i + 1;
-            break;
+            this.classAliasList = this.dom[i].classList.toString().split(' ');
+
+            if (this.arrayCompared(this.classAliasList, this.identifierClassArray).length > 0) {
+
+              this.element = this.dom[i];
+              this.position = i + 1;
+              break;
+            }
           }
           if (i >= this.dom.length) {
             this.position = 0;
@@ -189,15 +207,23 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
         }
         //if it's .class/.class .es
       } else if (identifier.indexOf('.') > -1) {
+
+        this.identifierClassArray = identifier.toString().replace('.', '').split(' ');
+
         for (i <= this.position; i >= 0; i -= 1) {
 
           if (this.dom[i]
-            && this.dom[i].className
-            && this.dom[i].className.toString().indexOf(identifier.replace('.', '')) !== -1) {
+            && this.dom[i].classList
+            && identifier.indexOf('.') !== -1) {
 
-            this.element = this.dom[i];
-            this.position = i - 1;
-            break;
+            this.classAliasList = this.dom[i].classList.toString().split(' ');
+
+            if (this.arrayCompared(this.classAliasList, this.identifierClassArray).length > 0) {
+
+              this.element = this.dom[i];
+              this.position = i - 1;
+              break;
+            }
           }
           if (i < this.dom.length) {
             this.position = 0;
