@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <script src="bower_components/highlighter.js/dist/highlighter.min.js"></script>
   </head>
-  <body class="bg-greeny">
+  <body class="">
     <div class="line-compress bg-white center-content">
       <div class="line-compress right-content">
         <div class="separator15"></div>
@@ -31,11 +31,11 @@
     <div class="separator50"></div>
     <div class="line">
     <div class="separator15"></div>
-          <div class="line-compress center-content bg-muted-inverse fixed bottom" id="result"></div>
+          <div class="line-compress center-content bg-dark color-white fixed bottom" id="result"></div>
       <div class="separator15"></div>
-      <h6 class="font-medium color-muted center-content">Click the button to highlight elements</h6>
+      <h6 class="font-medium color-white center-content">Click the button to highlight elements</h6>
       <div class="separator30"></div>
-    <button id="button" class="btn btn-medium btn-max bg-muted radius3 color-muted">Highlight</div>
+    <button id="button" class="btn btn-medium btn-max bg-greeny color-white radius3">Highlight</div>
       <div class="separator50"></div>
     </div>
     <div class="separator100"></div>
@@ -89,9 +89,9 @@
               nodeName = '';
             }
 
-            result.innerHTML = '<div class="separator10"></div><b>Highlighter<b class="color-greeny">.element</b></b> = {&nbsp;&nbsp;<b>nodeName:</b> <span class="color-muted">' + nodeName + ',</span>' +
-            '&nbsp;&nbsp;<b>classList:</b> <span class="color-muted">' +  classList + ',</span>' +
-            '&nbsp;&nbsp;<b>id:</b> <span class="color-muted">' + id + '}</span><div class="separator10"></div>';
+            result.innerHTML = '<div class="separator10"></div><b>Highlighter<b class="color-greeny">.element</b></b> = {&nbsp;&nbsp;<b>nodeName:</b> <span class="color-muted-inverse">' + nodeName + ',</span>' +
+            '&nbsp;&nbsp;<b>classList:</b> <span class="color-muted-inverse">' +  classList + ',</span>' +
+            '&nbsp;&nbsp;<b>id:</b> <span class="color-muted-inverse">' + id + '}</span><div class="separator10"></div>';
 
         };
 
