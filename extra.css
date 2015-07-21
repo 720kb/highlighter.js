@@ -25,6 +25,11 @@ i.fa{
 .btn-max{
   max-width:200px;
 }
+.btn-github i {
+  position:relative;
+  bottom:-1px;
+  margin-right:2px;
+}
 .color-oro{
   color:#528A08;
 }
