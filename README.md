@@ -69,7 +69,7 @@ _Skip a bunch of next elements starting from the current selected element_
 Highlighter.skipNext(50);
 ```
 
-####Skip Next
+####Skip Previous
 _Skip a bunch of previous elements starting from the current selected element_
 ```javascript
 Highlighter.skipPrev(35);
