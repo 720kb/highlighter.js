@@ -155,6 +155,45 @@ var Highlighter = new window.Highlighter({
   'scrollDuration': 500 //milliseconds
 });
 ```
+##Events
+There is a set of events that you could use for your needs.
+
+```javascript
+window.addEventListener('Highlighter:selected', function (evt) {
+
+ console.log('This element has been selected', evt.eventData);
+});
+```
+```javascript
+window.addEventListener('Highlighter:underlined', function (evt) {
+
+ console.log('This element has been underlined', evt.eventData);
+});
+```
+```javascript
+window.addEventListener('Highlighter:erased', function (evt) {
+
+ console.log('This element has been erased', evt.eventData);
+});
+```
+```javascript
+window.addEventListener('Highlighter:skipped', function () {
+
+ console.log('Elements were skipped');
+});
+```
+```javascript
+window.addEventListener('Highlighter:scrolled', function (evt) {
+
+ console.log('Scrolled to this element', evt.eventData);
+});
+```
+```javascript
+window.addEventListener('Highlighter:restart', function () {
+
+ console.log('Highlighter restarted from the first DOM element');
+});
+```
 
 ##Gtk
 - Not yet 100% ready for production
