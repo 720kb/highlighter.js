@@ -1,17 +1,16 @@
 ![highlighter javascript ](http://i.imgur.com/XmHz6mj.png)
-
-
+<br>
+<p align="center">
 Highlighter**.js** is a tiny (pure javascript) library, to allow you to easily navigate, select and highlight the DOM elements.
 
+[![Join the chat at https://gitter.im/720kb/highlighter.js](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/720kb/highlighter.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+</p>
+<br>
 ###Browser Support
 
-[![Join the chat at https://gitter.im/720kb/highlighter.js](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/720kb/highlighter.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-Depending on:
-
-http://caniuse.com/#feat=queryselector
-
-https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+Depending on
+[Query Selector](http://caniuse.com/#feat=queryselector)
+[Array Filter](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 
 ###Installation
 
