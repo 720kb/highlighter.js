@@ -1,7 +1,7 @@
 ![highlighter javascript ](http://i.imgur.com/XmHz6mj.png)
 <br>
 <p align="center">
-Highlighter**.js** is a tiny (pure javascript) library, to allow you to easily navigate, select and highlight the DOM elements.
+**Highlighter.js** is a tiny (pure javascript) library to easily navigate, select and highlight the DOM elements.
 <br></br>
 <a href="https://gitter.im/720kb/highlighter.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" target="_blank">
 <img src="https://badges.gitter.im/Join%20Chat.svg"/>
