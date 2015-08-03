@@ -5,6 +5,8 @@ Highlighter**.js** is a tiny (pure javascript) library, to allow you to easily n
 
 ###Browser Support
 
+[![Join the chat at https://gitter.im/720kb/highlighter.js](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/720kb/highlighter.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Depending on:
 
 http://caniuse.com/#feat=queryselector
