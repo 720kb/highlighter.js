@@ -112,6 +112,27 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
     window.dispatchEvent(this.onSelectedEvent);
   };
 
+  Highlighter.prototype.point = function pointStartingElement(element) {
+    var i = 0;
+
+    if (element
+      && this.dom
+      && this.dom.length > 0) {
+      for (i; i <= this.dom.length; i += 1) {
+        if (this.dom[i] === element) {
+
+          this.position = i;
+          this.element = this.dom[i];
+          window.console.log('Highlighter pointing to element:', this.element);
+          break;
+        }
+      }
+    } else {
+
+      window.console.error('Unable to retrieve starting element');
+    }
+  };
+
   Highlighter.prototype.arrayCompared = function comparedArray(firstArray, secondArray) {
 
     return firstArray.filter(function returnOne(one) {
