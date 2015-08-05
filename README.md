@@ -145,8 +145,8 @@ _Select first element in the DOM by < tag > name_
 Highlighter.select('<span>');
 ```
 
-####Start from specific element
-_Define the starting line by a given element so that Highlighter will start from that element and not from the first DOM element_
+####Point Element as starting line
+_Point the Highlighter to a starting element so that Highlighter will start from that element and not from the first DOM element_
 ```javascript
 var element = window.document.getElementById('startFromThis');
 Highlighter.point(element);
