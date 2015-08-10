@@ -1,6 +1,6 @@
 {
   "name": "highlighter.js",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Highlighter.js is a tiny (pure javascript) library to allow you to navigate, select and highlight DOM elements.",
   "homepage": "https://github.com/720kb/highlighter.js",
   "authors": [

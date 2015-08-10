@@ -38,18 +38,28 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
     this.scrollDuration = 500;
     this.classAliasList = [];
     this.identifierClassArray = [];
+    this.color = '#08FD31';
 
     if (opt) {
 
+      if (opt.color) {
+
+        this.color = opt.color;
+      }
       if (opt.scroll) {
+
         this.scroll = true;
       }
+
       if (opt.scrollDuration) {
 
         this.scrollDuration = Number(opt.scrollDuration);
       }
+
       if (opt.viewable) {
+
         for (i; i <= this.dom.length; i += 1) {
+
           if (this.dom[i]
           && this.dom[i].isVisible()) {
 
@@ -79,7 +89,7 @@ window.smoothScroll=function(){if(void 0!==document.querySelectorAll&&void 0!==w
     if (this.element
       && this.element.style) {
       this.element.style.transition = 'outline 0.55s linear';
-      this.element.style.outline = '3px inset #08FD31';
+      this.element.style.outline = '3px inset ' + this.color;
       this.element.style.outlineOffset = '-2px';
       this.onUnderlinedEvent.eventData = {
         'element': this.element
