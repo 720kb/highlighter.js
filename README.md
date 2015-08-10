@@ -154,6 +154,15 @@ Highlighter.point(element);
 
 ##Options
 
+####Highlighter color
+If you want a different highlighter color set the option ```{ color:'#cc0011'}```
+
+```javascript
+var Highlighter = new window.Highlighter({
+  'color':'blue' //you can use any CSS valid color value
+});
+```
+
 ####Exclude hidden/invisible elements
 Sometime you could need to work only on visible/viewable elements, so, to skip invisible or hidden elements, set the option ```{ viewable:true}```
 
