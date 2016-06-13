@@ -64,7 +64,6 @@
       2,
       "outside"
     ],
-    "strict": [2, "never"],
     "strict": 2,
     "no-catch-shadow": 2,
     "no-delete-var": 2,
@@ -150,7 +149,6 @@
       1,
       "expression"
     ],
-    "no-extra-parens": 1,
     "func-names": 1,
 
     "no-ternary": 0,
