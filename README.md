@@ -1,4 +1,4 @@
-![highlighter javascript ](http://i.imgur.com/dBgXm74.png)
+![highlighter javascript ](http://i.imgur.com/XmHz6mj.png)
 <br>
 <p align="center">
 <br></br>
