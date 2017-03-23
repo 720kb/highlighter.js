@@ -7,11 +7,11 @@
 </a>
 </p>
 <br>
-###What is this?
+### What is this?
 
 **Highlighter.js** is a tiny (pure javascript) library to easily navigate, select and highlight the DOM elements.
 
-###Browser Support
+### Browser Support
 
 Depending on
 
@@ -33,17 +33,17 @@ Depending on
 //If you prefer performances, you can load the script at the bottom of your <body> instead of inside <head>
 </body>
 ```
-####Bower
+#### Bower
 ```shell
 bower install highlighter.js
 ```
 
-####Npm
+#### npm
 ```shell
 npm install highlighter.js
 ```
 
-###Usage
+### Usage
 ```javascript
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -58,32 +58,32 @@ document.addEventListener("DOMContentLoaded", function() {
 ###Demo
 [Live demo](http://720kb.github.io/highlighter.js/ "Highlighter.js")
 
-##Commands
+## Commands
 
-####Select Next
+#### Select Next
 _Select next element starting from the current selected element (by default is the first DOM element)_
 ```javascript
 Highlighter.next();
 ```
 
-####Select Previous
+#### Select Previous
 _Select previous element starting from the current selected element ( by default is the first DOM element)_
 ```javascript
 Highlighter.previous();
 ```
-####Skip Next
+#### Skip Next
 _Skip a bunch of next elements starting from the current selected element_
 ```javascript
 Highlighter.skipNext(50);
 ```
 
-####Skip Previous
+#### Skip Previous
 _Skip a bunch of previous elements starting from the current selected element_
 ```javascript
 Highlighter.skipPrev(35);
 ```
 
-####Underline
+#### Underline
 _Highlight the current selected element_
 ```javascript
 Highlighter.underline();
@@ -95,66 +95,66 @@ _Remove highlighting from the current selected element_
 Highlighter.erase();
 ```
 
-####Select Next by ID
+#### Select Next by ID
 _Select next element (by ID) starting from the current selected element (by default is the first DOM element)_
 ```javascript
 Highlighter.next('#test');
 ```
 
-####Select Next by class/es
+#### Select Next by class/es
 _Select next element (by class/classes) starting from the current selected element (by default is the first DOM element)_
 ```javascript
 Highlighter.next('.class .class-2');
 ```
-####Select Next by < tag > name
+#### Select Next by < tag > name
 _Select next element (by < tag > name) starting from the current selected element (by default is the first DOM element)_
 ```javascript
 Highlighter.next('<span>');
 ```
 
-####Select Previous by ID
+#### Select Previous by ID
 _Select previous element (by ID) starting from the current selected element (by default is the first DOM element)_
 ```javascript
 Highlighter.previous('#test');
 ```
 
-####Select Previous by class/es
+#### Select Previous by class/es
 _Select previous element (by class/classes) starting from the current selected element (by default is the first DOM element)_
 ```javascript
 Highlighter.previous('.class .class-2');
 ```
-####Select Previous by < tag > name
+#### Select Previous by < tag > name
 _Select previous element (by < tag > name) starting from the current selected element (by default is the first DOM element)_
 ```javascript
 Highlighter.previous('<span>');
 ```
 
-####Select Element By ID
+#### Select Element By ID
 _Select first element in the DOM by ID_
 ```javascript
 Highlighter.select('#id');
 ```
-####Select Element by class/es
+#### Select Element by class/es
 _Select first element in the DOM by class or classes_
 ```javascript
 Highlighter.select('.class .class2');
 ```
-####Select Element by tag name
+#### Select Element by tag name
 _Select first element in the DOM by < tag > name_
 ```javascript
 Highlighter.select('<span>');
 ```
 
-####Point Element as starting line
+#### Point Element as starting line
 _Point the Highlighter to a starting element so that Highlighter will start from that element and not from the first DOM element_
 ```javascript
 var element = window.document.getElementById('startFromThis');
 Highlighter.point(element);
 ```
 
-##Options
+## Options
 
-####Highlighter color
+#### Highlighter color
 If you want a different highlighter color set the option ```{ color:'#cc0011'}```
 
 ```javascript
@@ -163,7 +163,7 @@ var Highlighter = new window.Highlighter({
 });
 ```
 
-####Exclude hidden/invisible elements
+#### Exclude hidden/invisible elements
 Sometime you could need to work only on visible/viewable elements, so, to skip invisible or hidden elements, set the option ```{ viewable:true}```
 
 ```javascript
@@ -172,7 +172,7 @@ var Highlighter = new window.Highlighter({
 });
 ```
 
-####Scroll to the underlined element
+#### Scroll to the underlined element
 Sometime you could need to scroll to the current underlined element, so, to automatically scroll to it once is underlined you can set the options ```{scroll:true, scrollDuration: 500 }```
 ```javascript
 var Highlighter = new window.Highlighter({
@@ -180,7 +180,7 @@ var Highlighter = new window.Highlighter({
   'scrollDuration': 500 //milliseconds
 });
 ```
-##Events
+## Events
 There is a set of events that you could use for your needs.
 
 ```javascript
@@ -220,7 +220,7 @@ window.addEventListener('Highlighter:restart', function () {
 });
 ```
 
-##Gtk
+## Gtk
 - Not yet 100% ready for production
 - If your element/s has ```outline:``` CSS rule setted up, there could be problems or maybe not.
 - isVisible() control need a deep check, it could probably mistake at any time
@@ -228,7 +228,7 @@ window.addEventListener('Highlighter:restart', function () {
 - If no selectable next elements, Highlighter will restart from the first element in DOM
 - If no selectable previous elements, Highlighter will restart from the first element in DOM
 
-##License
+## License
 The MIT License (MIT)
 
 Copyright (c) 2015 Filippo Oretti, Dario Andrei
