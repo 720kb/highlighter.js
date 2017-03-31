@@ -19,9 +19,9 @@ Depending on
 
 [Array Filter](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
 
-###Installation
+### Installation
 
-####HTML
+#### HTML
 ```html
 <!DOCTYPE html>
 <html>
@@ -55,7 +55,8 @@ document.addEventListener("DOMContentLoaded", function() {
   window.console.log('Highlighter underlined this element:', Highlighter.element);
 });
 ```
-###Demo
+### Demo
+
 [Live demo](http://720kb.github.io/highlighter.js/ "Highlighter.js")
 
 ## Commands
