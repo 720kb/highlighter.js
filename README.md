@@ -7,6 +7,7 @@
 </a>
 </p>
 <br>
+
 ### What is this?
 
 **Highlighter.js** is a tiny (pure javascript) library to easily navigate, select and highlight the DOM elements.
